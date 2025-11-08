@@ -8,6 +8,7 @@ using PaymentSystem.Core.Models;
 
 namespace PaymentSystem.Core.Interfaces
 {
+    // Contrato comum para qualquer estratégia de pagamento
     public interface IPaymentStrategy
     {
         PaymentType PaymentType { get; }
