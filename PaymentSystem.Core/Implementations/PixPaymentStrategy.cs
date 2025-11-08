@@ -28,7 +28,7 @@ namespace PaymentSystem.Core.Implementations
             var txId = await _gateway.ProcessPaymentAsync(new { request.Amount, request.Description, request.PixKey }, cancellationToken);
 
 
-            return new PaymentResult { Sucess = true, TransactionId = txId, Message = "Pagamento via PIX realizado com sucesso" };
+            return new PaymentResult { Sucess = true, TransactionId = txId, Message = $"Pagamento via PIX de R$ {request.Amount} realizado com sucesso para chave {request.PixKey}" };
 
 
 

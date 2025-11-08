@@ -10,8 +10,7 @@ namespace PaymentSystem.Core.Implementations
     {
 
         private readonly IPaymentGateway _gateway;
-        public PaymentType SupportedType => PaymentType.Boleto;
-
+        public PaymentType PaymentType => PaymentType.Boleto;
         public BoletoPaymentStrategy(IPaymentGateway gateway)
         {
             _gateway = gateway;

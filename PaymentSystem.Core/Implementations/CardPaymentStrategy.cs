@@ -25,7 +25,7 @@ namespace PaymentSystem.Core.Implementations
             // simulando -> chamada de gateway real com os dados do cartão (payload simplificado)
             var txId = await _gateway.ProcessPaymentAsync(new { request.Amount, request.Description }, cancellationToken);
 
-            return new PaymentResult { Sucess = true, TransactionId = txId, Message = "Pagamento com cartão realizado com sucesso" };
+            return new PaymentResult { Sucess = true, TransactionId = txId, Message = $"Pagamento com cartão de R$ {request.Amount} realizado com sucesso - {request.CardNumber}" };
         }
     }
 }

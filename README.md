@@ -1,62 +1,98 @@
-# PaymentSystem
+# 💳 PaymentSystem
 
-Projeto de estudo em C# / .NET 8 demonstrando Strategy, Factory, DI, Clean Code e testes.
+Projeto de estudo em **C# / .NET 8** demonstrando **Strategy**, **Factory**, **Clean Code** e **Testes Unitários (xUnit)**.
 
-## Estrutura
+![.NET](https://img.shields.io/badge/.NET-8.0-blueviolet?logo=dotnet&logoColor=white) ![C#](https://img.shields.io/badge/C%23-Programming-blue?logo=csharp&logoColor=white) ![xUnit](https://img.shields.io/badge/Tests-xUnit-success?logo=xunit&logoColor=white) ![License](https://img.shields.io/badge/license-MIT-green)
 
-- PaymentSystem.Core: domínio, estratégias, fábrica, serviços
-- PaymentSystem.App: console app de demonstração
-- PaymentSystem.Tests: testes unitários (xUnit)
+## Sobre
 
-├── 📁 PaymentSystem.App
-│ ├── 📄 PaymentSystem.App.csproj
-│ └── 📄 Program.cs
-├── 📁 PaymentSystem.Core
-│ ├── 📁 DTOs
-│ │ └── 📄 PaymentRequest.cs
-│ ├── 📁 Enums
-│ │ └── 📄 PaymentType.cs
-│ ├── 📁 Factory
-│ ├── 📁 Implementations
-│ ├── 📁 Interfaces
-│ │ └── 📄 IPaymentStrategy.cs
-│ ├── 📁 Models
-│ │ └── 📄 PaymentResult.cs
-│ ├── 📁 Services
-│ ├── 📄 Class1.cs
-│ └── 📄 PaymentSystem.Core.csproj
-├── 📁 PaymentSystem.Tests
-│ ├── 📄 PaymentSystem.Tests.csproj
-│ └── 📄 UnitTest1.csu
-├── ⚙️ .gitignore
-├── 📄 PaymentSystem.sln
-└── 📝 README.md
+`PaymentSystem` simula um sistema de pagamentos modular onde cada forma de pagamento (Pix, Cartão, Boleto) é tratada por uma **strategy**. A seleção da estratégia é feita por uma **factory**. Projeto focado em código limpo, princípios SOLID e testes automatizados.
+
+## Estrutura do projeto
+
+```
+PaymentSystem
+├─ PaymentSystem.App/          # Aplicação console (ponto de entrada)
+│  ├─ Program.cs
+│  └─ PaymentSystem.App.csproj
+├─ PaymentSystem.Core/         # Domínio, interfaces, estratégias, factory e modelos
+│  ├─ DTOs/
+│  ├─ Enums/
+│  ├─ Factory/
+│  ├─ Implementations/
+│  ├─ Interfaces/
+│  ├─ Models/
+│  └─ PaymentSystem.Core.csproj
+├─ PaymentSystem.Tests/        # Testes unitários (xUnit)
+│  └─ PaymentSystem.Tests.csproj
+├─ PaymentSystem.sln
+└─ .gitignore
+```
 
 ## Requisitos
 
-- .NET 8 SDK
-- VS Code (opcional)
+- .NET SDK 8.0+
+- (Opcional) VS Code com extensão C#
 
 ## Como rodar
 
-1. Restaurar e build:
-   dotnet restore
-   dotnet build
+1. Restaurar dependências e compilar:
 
-2. Rodar app:
-   dotnet run --project PaymentSystem.App/PaymentSystem.App.csproj
+```bash
+dotnet restore
+dotnet build
+```
 
-3. Rodar testes:
-   dotnet test
+2. Executar a aplicação:
 
-## Principais conceitos
+```bash
+dotnet run --project PaymentSystem.App/PaymentSystem.App.csproj
+```
 
-- Strategy: IPaymentStrategy e implementações
-- Factory: PaymentStrategyFactory escolhe a strategy correta via DI
-- DI: Microsoft.Extensions.DependencyInjection para registrar e resolver dependências
-- Testes: xUnit cobrindo casos básicos
+3. Executar os testes:
 
-## Observações
+```bash
+dotnet test
+```
 
-- As integrações com gateways são mocks (CardGatewayMock, PixGatewayMock, BoletoGatewayMock) para focar em arquitetura.
-- Em produção, substitua gateways por implementações reais e adicione logging, tratamento de exceções e observability (Serilog, Prometheus etc.).
+## Conceitos aplicados
+
+- **Strategy Pattern** — `IPaymentStrategy` e implementações (Cartão, Pix, Boleto).
+- **Factory Pattern** — `PaymentStrategyFactory` seleciona a estratégia correta.
+- **Dependency Injection** — desacoplamento de dependências (onde aplicável).
+- **Clean Code / SOLID** — responsabilidades claras e extensibilidade.
+- **Testes** — xUnit cobrindo cenários principais.
+
+## Comandos úteis
+
+- Compilar solução inteira:
+
+```bash
+dotnet build
+```
+
+- Rodar projeto específico:
+
+```bash
+dotnet run --project PaymentSystem.App
+```
+
+- Rodar testes:
+
+```bash
+dotnet test
+```
+
+## Próximos passos sugeridos
+
+- Adicionar **FluentAssertions** para asserções mais legíveis em testes.
+- Adicionar **Serilog** para logging estruturado.
+- Extrair infra (gateways) para projeto separado e integrar `HttpClient` real.
+- Criar API REST com ASP.NET Core para expor endpoints de pagamento.
+
+## Autor
+
+João Barbosa
+
+- [https://joaobarbosadev.vercel.app/](https://joaobarbosadev.vercel.app/)
+- [https://github.com/JoaoSBarbosa](https://github.com/JoaoSBarbosa)
