@@ -8,6 +8,30 @@ Projeto de estudo em C# / .NET 8 demonstrando Strategy, Factory, DI, Clean Code 
 - PaymentSystem.App: console app de demonstração
 - PaymentSystem.Tests: testes unitários (xUnit)
 
+├── 📁 PaymentSystem.App
+│ ├── 📄 PaymentSystem.App.csproj
+│ └── 📄 Program.cs
+├── 📁 PaymentSystem.Core
+│ ├── 📁 DTOs
+│ │ └── 📄 PaymentRequest.cs
+│ ├── 📁 Enums
+│ │ └── 📄 PaymentType.cs
+│ ├── 📁 Factory
+│ ├── 📁 Implementations
+│ ├── 📁 Interfaces
+│ │ └── 📄 IPaymentStrategy.cs
+│ ├── 📁 Models
+│ │ └── 📄 PaymentResult.cs
+│ ├── 📁 Services
+│ ├── 📄 Class1.cs
+│ └── 📄 PaymentSystem.Core.csproj
+├── 📁 PaymentSystem.Tests
+│ ├── 📄 PaymentSystem.Tests.csproj
+│ └── 📄 UnitTest1.csu
+├── ⚙️ .gitignore
+├── 📄 PaymentSystem.sln
+└── 📝 README.md
+
 ## Requisitos
 
 - .NET 8 SDK
