@@ -1,0 +1,24 @@
+# Visual Studio / .NET
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+# VS Code
+.vscode/
+
+# Rider
+.idea/
+
+# dotnet tool
+.dotnet/
+
+# test results
+TestResults/
+
+# logs
+*.log
+
+# macOS
+.DS_Store
